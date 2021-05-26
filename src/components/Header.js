@@ -1,18 +1,35 @@
 import React, { useState } from 'react'
 import SearchForm from './SearchForm'
+import { toast } from 'react-toastify'
+import { useDispatch } from 'react-redux'
+import ModalPop from './Modal/Modal'
 
 const Header = () => {
+  const dispatch = useDispatch()
   const [trackId, setTrackId] = useState('')
-  const [details, setDetails] = useState({})
+
+  //Modal
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const handleSubmit = e => {
     e.preventDefault()
+    if (trackId === '') {
+      return toast.error('Please give me a tracking number')
+    }
     //Handle form submit
     fetch(`${process.env.REACT_APP_API}${trackId}`)
       .then(res => res.json())
       .then(data => {
-        setDetails(data)
-        console.log(details)
+        dispatch({
+          type: 'PARCEL_DETAILS',
+          payload: data.parcelTracking,
+        })
+        handleShow()
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 
@@ -52,6 +69,7 @@ const Header = () => {
           <i className='fas fa-chevron-right'></i>
         </a>
       </div>
+      {show && <ModalPop show={show} handleClose={handleClose} />}
     </div>
   )
 }

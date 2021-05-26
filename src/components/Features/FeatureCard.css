@@ -1,0 +1,13 @@
+.card-icon {
+  height: 70px;
+}
+.card-icon:hover {
+  cursor: pointer;
+  /* transform: rotate(-30deg); */
+  transform: scale(1.5, 1.5) rotate(-30deg);
+  transition: transform 0.5s;
+}
+
+.card-heading {
+  color: #16264cdc;
+}
