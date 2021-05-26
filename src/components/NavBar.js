@@ -42,7 +42,7 @@ const NavBar = () => {
               <NavDropdown.Item href='#action/3.2'>Login</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link className='text-light' href='#link'>
-              <i class='fas fa-globe-asia'></i> EN
+              <i className='fas fa-globe-asia'></i> EN
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
