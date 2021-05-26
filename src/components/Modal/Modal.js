@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { ProgressBar } from 'react-step-progress-bar'
+import pending from '../../assets/pending.png'
+import onpickup from '../../assets/pickup.png'
+import pickedup from '../../assets/pickedup.png'
+import inhub from '../../assets/inhub.png'
+import ondelivery from '../../assets/ondelivery.png'
+import delivery from '../../assets/delivery.png'
 
 const ModalPop = ({ show, handleClose }) => {
   const { parcel } = useSelector(state => ({ ...state }))
@@ -57,6 +63,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>Pending</p>
+              <img className='card-icon w-50' src={pending} alt='' />
+              <br />
               <small>{parcelCreateDateTime}</small>
               <small>Parcel Added by Merchant</small>
             </div>
@@ -64,6 +72,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>On Pick up</p>
+              <img className='card-icon w-50' src={onpickup} alt='' />
+              <br />
               <small>{pickUpAssign.pickUpAssignDateTime}</small>
               <small>Waiting for pick up by GHURI</small>
             </div>
@@ -71,6 +81,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>Picked Up</p>
+              <img className='card-icon w-50' src={pickedup} alt='' />
+              <br />
               <small>{pickedUp.pickedUpDateTime}</small>
               <small>Picked Up by GHURI</small>
             </div>
@@ -78,6 +90,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>In hub</p>
+              <img className='card-icon w-50' src={inhub} alt='' />
+              <br />
               <small>{hubReceived.hubReceivedDateTime}</small>
               <small>Parcel in Ghuri Hub</small>
             </div>
@@ -85,6 +99,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>On delivery</p>
+              <img className='card-icon w-50' src={ondelivery} alt='' />
+              <br />
               <small>{deliveryAssign.assignedDateTime}</small>
               <small>Delivery on Progress by GHURI</small>
             </div>
@@ -92,6 +108,8 @@ const ModalPop = ({ show, handleClose }) => {
           <div className='col-md-2'>
             <div className='text-center'>
               <p>Delivered</p>
+              <img className='card-icon w-50' src={delivery} alt='' />
+              <br />
               <small>{delivered.deliveredDateTime}</small>
               <small>Delivered To Customer</small>
             </div>
